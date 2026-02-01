@@ -138,6 +138,40 @@ function play(){
         bird.style.top = bird_props.top + bird_dy + 'px';
         bird_props = bird.getBoundingClientRect();
 
+        /* ✅ Mobile Buttons */
+let startBtn = document.getElementById("startBtn");
+let flyBtn = document.getElementById("flyBtn");
+
+/* Start button for Mobile */
+startBtn.addEventListener("click", () => {
+    if (game_state != "Play") {
+        document.querySelectorAll('.pipe_sprite').forEach((e) => e.remove());
+
+        img.style.display = "block";
+        bird.style.top = "40vh";
+        game_state = "Play";
+
+        message.innerHTML = "";
+        score_title.innerHTML = "Score : ";
+        score_val.innerHTML = "0";
+        message.classList.remove("messageStyle");
+
+        play();
+    }
+});
+
+/* Fly button for Mobile */
+flyBtn.addEventListener("touchstart", () => {
+    if (game_state == "Play") {
+        img.src = "images/Bird-2.png";
+        bird_dy = -7.6;
+    }
+});
+
+flyBtn.addEventListener("touchend", () => {
+    img.src = "images/Bird.png";
+});
+
         requestAnimationFrame(apply_gravity);
     }
 

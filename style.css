@@ -139,3 +139,36 @@
 		width: 14vw;
 	}
 }
+/* ✅ Mobile Controls Hidden on PC */
+.mobile-controls {
+    display: none; /* hidden by default */
+
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+    z-index: 200;
+}
+
+/* Buttons */
+.mobile-controls button {
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+
+    border: none;
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.8);
+}
+
+/* Show ONLY on Mobile Screens */
+@media only screen and (max-width: 768px) {
+    .mobile-controls {
+        display: flex;
+    }
+}
